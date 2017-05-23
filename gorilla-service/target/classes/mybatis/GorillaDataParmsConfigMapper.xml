@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gorilla.sdkUI.dao.GorillaDataParmsConfigMapper">
+  <resultMap id="BaseResultMap" type="com.gorilla.sdkUI.model.GorillaDataParmsConfig">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="version" jdbcType="VARCHAR" property="version" />
+    <result column="case_id" jdbcType="BIGINT" property="caseId" />
+    <result column="url" jdbcType="VARCHAR" property="url" />
+    <result column="request_data" jdbcType="LONGVARCHAR" property="requestData" />
+    <result column="response_data" jdbcType="LONGVARCHAR" property="responseData" />
+    <result column="response_value" jdbcType="LONGVARCHAR" property="responseValue" />
+    <result column="system_version" jdbcType="VARCHAR" property="systemVersion" />
+    <result column="device" jdbcType="VARCHAR" property="device" />
+    <result column="create_Time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, version, case_id, url, request_data, response_data, response_value, system_version, 
+    device, create_Time, update_time
+  </sql>
+  <select id="selectByExample" parameterType="com.gorilla.sdkUI.model.GorillaDataParmsConfigExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from GO_DATAPARMS
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from GO_DATAPARMS
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from GO_DATAPARMS
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.gorilla.sdkUI.model.GorillaDataParmsConfigExample">
+    delete from GO_DATAPARMS
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.gorilla.sdkUI.model.GorillaDataParmsConfig" useGeneratedKeys="true">
+    insert into GO_DATAPARMS (version, case_id, url, 
+      request_data, response_data, response_value, 
+      system_version, device, create_Time, 
+      update_time)
+    values (#{version,jdbcType=VARCHAR}, #{caseId,jdbcType=BIGINT}, #{url,jdbcType=VARCHAR}, 
+      #{requestData,jdbcType=LONGVARCHAR}, #{responseData,jdbcType=LONGVARCHAR}, #{responseValue,jdbcType=LONGVARCHAR},
+      #{systemVersion,jdbcType=VARCHAR}, #{device,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.gorilla.sdkUI.model.GorillaDataParmsConfig" useGeneratedKeys="true">
+    insert into GO_DATAPARMS
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="version != null">
+        version,
+      </if>
+      <if test="caseId != null">
+        case_id,
+      </if>
+      <if test="url != null">
+        url,
+      </if>
+      <if test="requestData != null">
+        request_data,
+      </if>
+      <if test="responseData != null">
+        response_data,
+      </if>
+      <if test="responseValue != null">
+        response_value,
+      </if>
+      <if test="systemVersion != null">
+        system_version,
+      </if>
+      <if test="device != null">
+        device,
+      </if>
+      <if test="createTime != null">
+        create_Time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="version != null">
+        #{version,jdbcType=VARCHAR},
+      </if>
+      <if test="caseId != null">
+        #{caseId,jdbcType=BIGINT},
+      </if>
+      <if test="url != null">
+        #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="requestData != null">
+        #{requestData,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="responseData != null">
+        #{responseData,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="responseValue != null">
+        #{responseValue,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="systemVersion != null">
+        #{systemVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="device != null">
+        #{device,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.gorilla.sdkUI.model.GorillaDataParmsConfigExample" resultType="java.lang.Long">
+    select count(*) from GO_DATAPARMS
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update GO_DATAPARMS
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.version != null">
+        version = #{record.version,jdbcType=VARCHAR},
+      </if>
+      <if test="record.caseId != null">
+        case_id = #{record.caseId,jdbcType=BIGINT},
+      </if>
+      <if test="record.url != null">
+        url = #{record.url,jdbcType=VARCHAR},
+      </if>
+      <if test="record.requestData != null">
+        request_data = #{record.requestData,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.responseData != null">
+        response_data = #{record.responseData,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.responseValue != null">
+        response_value = #{record.responseValue,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.systemVersion != null">
+        system_version = #{record.systemVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="record.device != null">
+        device = #{record.device,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null">
+        create_Time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updateTime != null">
+        update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update GO_DATAPARMS
+    set id = #{record.id,jdbcType=BIGINT},
+      version = #{record.version,jdbcType=VARCHAR},
+      case_id = #{record.caseId,jdbcType=BIGINT},
+      url = #{record.url,jdbcType=VARCHAR},
+      request_data = #{record.requestData,jdbcType=LONGVARCHAR},
+      response_data = #{record.responseData,jdbcType=LONGVARCHAR},
+      response_value = #{record.responseValue,jdbcType=LONGVARCHAR},
+      system_version = #{record.systemVersion,jdbcType=VARCHAR},
+      device = #{record.device,jdbcType=VARCHAR},
+      create_Time = #{record.createTime,jdbcType=TIMESTAMP},
+      update_time = #{record.updateTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.gorilla.sdkUI.model.GorillaDataParmsConfig">
+    update GO_DATAPARMS
+    <set>
+      <if test="version != null">
+        version = #{version,jdbcType=VARCHAR},
+      </if>
+      <if test="caseId != null">
+        case_id = #{caseId,jdbcType=BIGINT},
+      </if>
+      <if test="url != null">
+        url = #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="requestData != null">
+        request_data = #{requestData,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="responseData != null">
+        response_data = #{responseData,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="responseValue != null">
+        response_value = #{responseValue,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="systemVersion != null">
+        system_version = #{systemVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="device != null">
+        device = #{device,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_Time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.gorilla.sdkUI.model.GorillaDataParmsConfig">
+    update GO_DATAPARMS
+    set version = #{version,jdbcType=VARCHAR},
+      case_id = #{caseId,jdbcType=BIGINT},
+      url = #{url,jdbcType=VARCHAR},
+      request_data = #{requestData,jdbcType=LONGVARCHAR},
+      response_data = #{responseData,jdbcType=LONGVARCHAR},
+      response_value = #{responseValue,jdbcType=LONGVARCHAR},
+      system_version = #{systemVersion,jdbcType=VARCHAR},
+      device = #{device,jdbcType=VARCHAR},
+      create_Time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

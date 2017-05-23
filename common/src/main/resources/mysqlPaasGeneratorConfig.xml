@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <classPathEntry
+            location="/Users/deanwang/Downloads/mysql-connector-java-5.1.38.jar"/>
+
+    <context id="paasTables" targetRuntime="MyBatis3">
+
+        <commentGenerator>
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://127.0.0.1:4532/paastool?useUnicode=true&amp;characterEncoding=UTF-8&amp;zeroDateTimeBehavior=convertToNull"
+                        userId="root"
+                        password="123456">
+        </jdbcConnection>
+
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+
+        <javaModelGenerator targetPackage="com.netease.jrsyb.paasTool.model.paastool"
+                            targetProject="/Users/deanwang/Downloads">
+            <property name="enableSubPackages" value="false"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <sqlMapGenerator targetPackage="/"
+                         targetProject="/Users/deanwang/Downloads">
+            <property name="enableSubPackages" value="false"/>
+        </sqlMapGenerator>
+
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.netease.jrsyb.paasTool.dao.paastool"
+                             targetProject="/Users/deanwang/Downloads">
+            <property name="enableSubPackages" value="false"/>
+        </javaClientGenerator>
+
+        <table schema="paasTool" tableName="GO_RESULT" domainObjectName="GorillaResultConfig">
+            <generatedKey column="ID" sqlStatement="JDBC" identity="true"/>
+        </table>
+
+        <!--<table schema="paasTool" tableName="PTS_CONFIG" domainObjectName="SecurityCardConfig">-->
+            <!--<generatedKey column="ID" sqlStatement="JDBC" identity="true"/>-->
+        <!--</table>-->
+
+        <!--<table schema="paas" tableName="MOCKBANK_RESPONSE_CONFIG" domainObjectName="ResponseConfig">
+            <generatedKey column="ID" sqlStatement="JDBC" identity="true"/>
+        </table>-->
+
+        <!--<table schema="paas" tableName="MOCKBANK_RESPONSE_MODEL_CONFIG" domainObjectName="ResponseModelConfig">
+            <generatedKey column="ID" sqlStatement="JDBC" identity="true"/>
+        </table>
+
+        <table schema="paas" tableName="MOCKBANK_RESPONSE_MODEL" domainObjectName="ResponseModel">
+            <generatedKey column="ID" sqlStatement="JDBC" identity="true"/>
+        </table>
+
+        <table schema="paas" tableName="MOCKBANK_RESPONSE_MAP_CONFIG" domainObjectName="ResponseMapConfig">
+            <generatedKey column="ID" sqlStatement="JDBC" identity="true"/>
+        </table>
+
+        <table schema="paas" tableName="MOCKBANK_REQUEST_MAP_CONFIG" domainObjectName="RequestMapConfig">
+            <generatedKey column="ID" sqlStatement="JDBC" identity="true"/>
+        </table>
+
+
+        <table schema="paas" tableName="MOCKBANK_REQUEST_CONFIG" domainObjectName="RequestConfig">
+            <generatedKey column="ID" sqlStatement="JDBC" identity="true"/>
+        </table>
+
+        <table schema="paas" tableName="MOCKBANK_REQUEST_MODEL_CONFIG" domainObjectName="RequestModelConfig">
+            <generatedKey column="ID" sqlStatement="JDBC" identity="true"/>
+        </table>
+
+        <table schema="paas" tableName="MOCKBANK_RESPONSE_MODEL_RELATION" domainObjectName="ResponseModelRelation">
+            <generatedKey column="ID" sqlStatement="JDBC" identity="true"/>
+        </table>-->
+
+
+        <!--<table schema="paas" tableName="PAAS_REPORT_TEMPLATE" domainObjectName="ReportTemplate">
+            <generatedKey column="TEMPLATE_ID" sqlStatement="JDBC" identity="true"/>
+        </table>-->
+
+        <!--<table schema="paas" tableName="PAAS_WEEKLY_REPORT" domainObjectName="WeeklyReport">-->
+            <!--<generatedKey column="REPORT_ID" sqlStatement="JDBC" identity="true"/>-->
+        <!--</table>-->
+
+        <!--<table schema="paas" tableName="PAAS_REPORT_RECEIVER" domainObjectName="ReportReceiver">-->
+            <!--<generatedKey column="RECEIVER_ID" sqlStatement="JDBC" identity="true"/>-->
+        <!--</table>-->
+
+        <!--<table schema="paas" tableName="PAAS_MAIL_LIST" domainObjectName="MailList">-->
+            <!--<generatedKey column="MAIL_LIST_ID" sqlStatement="JDBC" identity="true"/>-->
+        <!--</table>-->
+
+        <!--<table schema="paas" tableName="PAAS_GROUP_ACCOUNT_RELATE" domainObjectName="GroupAccountRelate">-->
+            <!--<generatedKey column="RELATED_ID" sqlStatement="JDBC" identity="true"/>-->
+        <!--</table>-->
+
+        <!--<table schema="paas" tableName="PAAS_GROUP" domainObjectName="PaasGroup">-->
+            <!--<generatedKey column="GROUP_ID" sqlStatement="JDBC" identity="true"/>-->
+        <!--</table>-->
+
+        <!--<table schema="paas" tableName="PAAS_MOCK_SIGN" domainObjectName="MockSign">-->
+            <!--<property name="useActualColumnNames" value="true"/>-->
+            <!--<generatedKey column="ID" sqlStatement="JDBC" identity="true"/>-->
+        <!--</table>-->
+
+        <!--<table schema="paas" tableName="PAAS_ACTION_LOG" domainObjectName="ActionLog">-->
+            <!--<generatedKey column="ACTION_LOG_ID" sqlStatement="JDBC" identity="true"/>-->
+        <!--</table>-->
+
+        <!--<table schema="paas" tableName="PAAS_PERMISSION" domainObjectName="Permission">-->
+            <!--<generatedKey column="PERMISSION_ID" sqlStatement="JDBC" identity="true"/>-->
+        <!--</table>-->
+
+        <!--<table schema="paas" tableName="PAAS_ROLE" domainObjectName="Role">-->
+            <!--<generatedKey column="ROLE_ID" sqlStatement="JDBC" identity="true"/>-->
+        <!--</table>-->
+
+        <!--<table schema="paas" tableName="PAAS_ROLE_PERMISSION" domainObjectName="RolePermission">-->
+            <!--<generatedKey column="ROLE_PERMISSION_ID" sqlStatement="JDBC" identity="true"/>-->
+        <!--</table>-->
+
+        <!--<table schema="paas" tableName="PAAS_USER_PERMISSION" domainObjectName="UserPermission">-->
+            <!--<generatedKey column="USER_PERMISSION_ID" sqlStatement="JDBC" identity="true"/>-->
+        <!--</table>-->
+
+        <!--<table schema="paas" tableName="PAAS_PROJECT_SYSTEM_RELATION" domainObjectName="PSRelation">-->
+        <!--<property name="useActualColumnNames" value="true"/>-->
+        <!--</table>-->
+
+        <!--<table schema="paas" tableName="PAAS_SYSTEM" domainObjectName="System">-->
+            <!--<generatedKey column="SYSTEM_ID" sqlStatement="JDBC" identity="true"/>-->
+        <!--</table>-->
+
+        <!--<table schema="paas" tableName="PAAS_PRODUCT" domainObjectName="Product">-->
+            <!--<generatedKey column="PRODUCT_ID" sqlStatement="JDBC" identity="true"/>-->
+        <!--</table>-->
+
+        <!--<table schema="paas" tableName="PAAS_CI_TASK" domainObjectName="CITask">-->
+        <!--<property name="useActualColumnNames" value="true"/>-->
+        <!--<generatedKey column="TASK_ID" sqlStatement="JDBC" identity="true"/>-->
+        <!--</table>-->
+
+        <!--<table schema="paas" tableName="PAAS_MOCK_PROJECT" domainObjectName="MockProject">-->
+        <!--<property name="useActualColumnNames" value="true"/>-->
+        <!--<generatedKey column="PROJECT_ID" sqlStatement="JDBC" identity="true"/>-->
+        <!--</table>-->
+
+        <!--<table schema="paas" tableName="PAAS_ACCOUNT" domainObjectName="Account">-->
+        <!--&lt;!&ndash;<property name="useActualColumnNames" value="true"/>&ndash;&gt;-->
+        <!--<generatedKey column="ACCOUNT_ID" sqlStatement="JDBC" identity="true"/>-->
+        <!--</table>-->
+
+        <!--<table schema="paas" tableName="PAAS_ACCOUNT" domainObjectName="Account">-->
+        <!--&lt;!&ndash;<property name="useActualColumnNames" value="true"/>&ndash;&gt;-->
+        <!--<generatedKey column="user_Id" sqlStatement="JDBC" identity="true"/>-->
+        <!--</table>-->
+
+        <!--<table schema="paas" tableName="PAAS_CI_DETAIL" domainObjectName="CIDetail">-->
+            <!--<property name="useActualColumnNames" value="true"/>-->
+            <!--<generatedKey column="detail_id" sqlStatement="JDBC" identity="true"/>-->
+        <!--</table>-->
+
+        <!--<table schema="paas" tableName="PAAS_CI_RESULT" domainObjectName="CIResult">-->
+            <!--<property name="useActualColumnNames" value="true"/>-->
+            <!--<generatedKey column="result_id" sqlStatement="JDBC" identity="true"/>-->
+        <!--</table>-->
+
+        <!--<table schema="paas" tableName="PAAS_CI_TASK" domainObjectName="CITask">-->
+            <!--<property name="useActualColumnNames" value="true"/>-->
+            <!--<generatedKey column="task_id" sqlStatement="JDBC" identity="true"/>-->
+        <!--</table>-->
+
+    </context>
+</generatorConfiguration>
