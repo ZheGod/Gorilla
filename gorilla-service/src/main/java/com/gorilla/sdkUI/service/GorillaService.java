@@ -12,15 +12,17 @@ import java.util.List;
  */
 public interface GorillaService {
 
-    int uploadGorillaCase(String recordTag, String caseVersion, String caseName, String caseRecordValue, String systemVersion, String device);
+    Long uploadGorillaCase(String recordTag, String caseVersion, String caseName, String caseRecordValue, String systemVersion, String device);
 
-    int uploadGorillaDataParms(String version, String caseId, String url, String requestData, String responseData, String device, String systemVersion) throws IOException;
+    Long uploadGorillaDataParms(String version, String caseId, String url, String requestData, String responseData, String device, String systemVersion) throws IOException;
 
     List<GorillaCaseConfig> getGorillaCase(String caseId);
 
     List<GorillaDataParmsConfig> getGorillaDataParms(String caseId, String url);
 
-    int uploadGorillaResult(String caseId, String uuid, String status, String device, String systemVersion);
+    Long uploadGorillaResult(String caseId, String uuid, String status, String device, String systemVersion);
 
     List<GorillaCaseConfig> getGorillaCaseByTag(String caseVersion, String recordTag);
+
+    boolean deleteGorillaCase(String caseId);
 }
